@@ -1,0 +1,25 @@
+# ninja log v5
+3	1315	7406062147195992	CMakeFiles/Minesweeper.dir/main.cpp.obj	647439a9ae6b72cd
+0	108	7406070463491330	build.ninja	85425247621cbada
+1316	1400	7406062148020297	Minesweeper.exe	5bb87a8e5335319a
+6	309	7405331226026242	CMakeFiles/Minesweeper.dir/board.cpp.obj	2cbc122d62d5c093
+3	1115	7405440100034971	CMakeFiles/Test.dir/test.cpp.obj	222ee9746cb85c32
+2	469	7405248054679827	CMakeFiles/Minesweeper.dir/test.cpp.obj	19accf7d9fc202b6
+2	329	7405330495535397	CMakeFiles/Test.dir/board.cpp.obj	1b934db0dd189704
+5	298	7405946505123928	CMakeFiles/Minesweeper.dir/board/board.cpp.obj	fc34f9cfe3d5c023
+3	288	7405430495810798	CMakeFiles/Test.dir/board/board.cpp.obj	f17d5199acbb164a
+3	1025	7405380049864043	CMakeFiles/Test.dir/draw/draw.cpp.obj	f218ae0313e486f9
+1115	1193	7405440100791037	Test.exe	7de15d38823051b4
+9	1033	7405440605982777	CMakeFiles/Minesweeper.dir/draw/draw.cpp.obj	cbfc0587a864d68e
+1	363	7406070463491330	build.ninja	85425247621cbada
+6	454	7406070468731967	CMakeFiles/Minesweeper.dir/board/board.cpp.obj	fc34f9cfe3d5c023
+10	1115	7406070475350821	CMakeFiles/Minesweeper.dir/draw/draw.cpp.obj	cbfc0587a864d68e
+2	1248	7406070476658438	CMakeFiles/Minesweeper.dir/main.cpp.obj	647439a9ae6b72cd
+1248	1443	7406070478598484	Minesweeper.exe	5bb87a8e5335319a
+4	1686	7406079930665618	CMakeFiles/Minesweeper.dir/main.cpp.obj	647439a9ae6b72cd
+1687	1930	7406079933156050	Minesweeper.exe	5bb87a8e5335319a
+0	10	0	clean	567f01a6bad3308b
+13	394	7406081093870120	CMakeFiles/Minesweeper.dir/board/board.cpp.obj	fc34f9cfe3d5c023
+9	1259	7406081102505357	CMakeFiles/Minesweeper.dir/draw/draw.cpp.obj	cbfc0587a864d68e
+3	1393	7406081103851766	CMakeFiles/Minesweeper.dir/main.cpp.obj	647439a9ae6b72cd
+1394	1480	7406081104671638	Minesweeper.exe	5bb87a8e5335319a
