@@ -1,15 +1,13 @@
 import requests
 import json
+import sys
 
 API_KEY = '9699714f-321b-402f-9cd1-b2f126036e55'
 url = f'https://api.random.org/json-rpc/4/invoke'
 
-file = open("python_input.txt")
-contents = file.readlines()
-_n = contents[0]
-_height = contents[1]
-_width = contents[2]
-file.close()
+_n = sys.argv[1]
+_height = sys.argv[2]
+_width = sys.argv[3]
 
 _height = int(_height)
 _width = int(_width)

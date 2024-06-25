@@ -7,12 +7,11 @@
 using namespace std;
 
 void run_script(const string& src,int n,int height,int width){
-    ofstream file;
-    file.open("python_input.txt", ios::trunc | ios::out);
-    file<<n<<"\n"<<height<<"\n"<<width;
-    file.close();
-    const string _cmd = "python3 " + src;
+    const string _n = to_string(n), _height = to_string(height), _width = to_string(width);
+    const string argv = _n + " " + _height + " " + _width;
+    const string _cmd = "python3 " + src + " " + argv;
     char cmd[_cmd.size()];
+    cmd[_cmd.size()] = ' ';
     for(int i = 0;i < _cmd.size();i++){cmd[i] = _cmd[i];}
     system(cmd);
 }
