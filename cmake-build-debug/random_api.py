@@ -2,7 +2,7 @@ import requests
 import json
 import sys
 
-API_KEY = '9699714f-321b-402f-9cd1-b2f126036e55'
+API_KEY = ''
 url = f'https://api.random.org/json-rpc/4/invoke'
 
 _n = sys.argv[1]
