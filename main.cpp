@@ -119,7 +119,7 @@ int main(){
 
     Draw draw;
     int height = 9,width = 10,bombs = 8;
-//    run_script("random_api.py",bombs,height,width);
+    run_script("random_api.py",bombs,height,width);
     Board board(height,width);
     board.init_map();
     board.set_bombs_from_file("random_cords.txt");
@@ -132,7 +132,8 @@ int main(){
         *keyCode = 0;
         key_handle(keyCode);
         if(*keyCode == 99){
-            printw("quit");
+            draw.setxy(0, height+1);
+            printw("QUIT");
             break;
         }
         if(*keyCode == 1){// W

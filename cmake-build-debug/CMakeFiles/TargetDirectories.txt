@@ -1,3 +1,0 @@
-C:/Users/Administrator/CLionProjects/terminal-minesweeper/cmake-build-debug/CMakeFiles/Minesweeper.dir
-C:/Users/Administrator/CLionProjects/terminal-minesweeper/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Administrator/CLionProjects/terminal-minesweeper/cmake-build-debug/CMakeFiles/rebuild_cache.dir

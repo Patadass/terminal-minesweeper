@@ -26,7 +26,7 @@ raw_data_height = {
     "id": 42
 }
 raw_data_width = {
-     "jsonrpc": "2.0",
+    "jsonrpc": "2.0",
     "method": "generateIntegers",
     "params": {
         "apiKey": API_KEY,
@@ -63,15 +63,15 @@ if response_height.status_code == 200 and response_width.status_code == 200:
     file.write(str(response_width.text))
 file.close()
 
-if response_height.status_code == 200 and not ('error' in x) and not('error' in y):
+if response_height.status_code == 200 and not ('error' in x) and not ('error' in y):
     contents = []
     for num in x['result']['random']['data']:
-            contents.append(str(num))
+        contents.append(str(num))
     i = 0
     for num in y['result']['random']['data']:
-         contents[i] += ';'+str(num)
-         i+=1
+        contents[i] += ';'+str(num)
+        i += 1
     file = open('random_cords.txt', 'w')
     for line in contents:
-         file.write(line + '\n')
+        file.write(line + '\n')
     file.close()
