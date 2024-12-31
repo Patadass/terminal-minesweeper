@@ -1,9 +1,10 @@
 import requests
 import json
 import sys
+import os
 
-API_KEY = ''
-url = f'https://api.random.org/json-rpc/4/invoke'
+API_KEY = os.environ['RANDOM_API']
+url = 'https://api.random.org/json-rpc/4/invoke'
 
 _n = sys.argv[1]
 _height = sys.argv[2]
