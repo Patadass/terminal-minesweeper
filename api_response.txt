@@ -1,3 +1,0 @@
-200
-{"jsonrpc":"2.0","result":{"random":{"data":[0,8,0,7,3,6,1,8,6,1],"completionTime":"2025-01-01 16:17:23Z"},"bitsUsed":32,"bitsLeft":243340,"requestsLeft":931,"advisoryDelay":1380},"id":42}
-{"jsonrpc":"2.0","result":{"random":{"data":[6,4,2,3,1,2,6,2,0,1],"completionTime":"2025-01-01 16:17:23Z"},"bitsUsed":32,"bitsLeft":243308,"requestsLeft":930,"advisoryDelay":1380},"id":43}
