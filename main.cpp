@@ -309,7 +309,7 @@ int main(int argc, char* argv[]){
         *keyCode = 0;
         key_handle(keyCode);
         if(*keyCode == 99){
-            draw.setxy(0, height+1);
+            draw.setxy(0, height+offset_i+1);
             printw("QUIT");
             break;
         }
