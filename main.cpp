@@ -293,6 +293,7 @@ int main(int argc, char* argv[]){
     Draw draw;
 
     Dims dim = mode_select(draw);
+    clear();
 
     int height = dim.height,width = dim.width,mines = dim.mines;
     run_script("random_api.py",mines,height,width);
