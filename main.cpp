@@ -129,8 +129,10 @@ Dims mode_select(Draw draw){
     int ch;
     while((ch = getch())){
         if(ch == 'q'){
-            break;
+            dim.mines = -1;
+            return dim;
         }
+        bool skip = false;
         switch(ch){
             case KEY_DOWN:
             case 's':
@@ -155,6 +157,12 @@ Dims mode_select(Draw draw){
             case '\n':
                 dim = dims[curent_selected];
                 break;
+            default:
+                skip = true;
+                break;
+        }
+        if(skip){
+            continue;
         }
         if(ch == '\n'){
             wclear(win);
@@ -229,6 +237,7 @@ void draw_board(Board& board,Draw draw){
             }
         }
     }
+    draw.reset_color();
     refresh();
 }
 
@@ -287,6 +296,7 @@ void key_handle(int *keyCode){
     }
 }
 
+//TODO: add timing
 int main(int argc, char* argv[]){
     initscr();
     start_color();
@@ -296,19 +306,29 @@ int main(int argc, char* argv[]){
     Draw draw;
 
     Dims dim = mode_select(draw);
+
+    if(dim.mines == -1){
+        endwin();
+        return 0;
+    }
+
     clear();
 
     int height = dim.height,width = dim.width,mines = dim.mines;
     run_script("random_api.py",mines,height,width);
+
     Board board(height,width);
     board.init_map();
     board.set_mines_from_file("random_cords.txt");
+
     int i = 0,j = 0;
     board.set_blanket(0,0,1);
     draw_board(board, draw);
+
     bool game_is_over = false;
     int *keyCode = new int;
     while(true){
+        mvprintw(0,0,"Bombs left: %d \t\t",mines);
         *keyCode = 0;
         key_handle(keyCode);
         if(*keyCode == 99){
@@ -376,7 +396,7 @@ int main(int argc, char* argv[]){
                 if(board.get_blanket(i,j) == 6){board.set_blanket(i,j,7);}
             }
         }
-        if(*keyCode == 5 && !game_is_over){//RETURN
+        if(*keyCode == 5 && !game_is_over){//RETURN select tile
             board.set_blanket(i,j,3);
             if(board.get_map(i,j) == 9){
                 draw_board(board, draw);
@@ -401,10 +421,12 @@ int main(int argc, char* argv[]){
                 game_is_over = true;
             }
         }
-        if(*keyCode == 6){
+        if(*keyCode == 6){//SPACE *flag
             if(board.get_blanket(i,j) == 7){
+                mines = mines+1;
                 board.set_blanket(i,j,1);
-            }else if(board.get_blanket(i,j) == 1){
+            }else if(board.get_blanket(i,j) == 1 && mines > 0){
+                mines = mines-1;
                 board.set_blanket(i,j,7);
             }
         }
