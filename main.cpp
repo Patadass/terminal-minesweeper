@@ -14,7 +14,10 @@ void run_script(const string& src,int n,int height,int width){
     char cmd[_cmd.size()];
     cmd[_cmd.size()] = ' ';
     for(int i = 0;i < _cmd.size();i++){cmd[i] = _cmd[i];}
+    printw("Getting random positions...");
+    refresh();
     system(cmd);
+    clear();
 }
 
 struct Dims{
