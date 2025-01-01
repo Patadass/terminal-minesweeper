@@ -65,7 +65,7 @@ public:
         }
     }
 
-    void set_bombs_from_file(std::string f_name){
+    void set_mines_from_file(std::string f_name){
         short num;
         file.open(f_name);
         std::string line;

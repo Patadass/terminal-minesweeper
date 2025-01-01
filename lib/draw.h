@@ -52,7 +52,6 @@ public:
         _color_pair = w;
         attron(COLOR_PAIR(w));
     }
-    
 
     void draw_fill_rect(int x, int y, int width,int height){
         for(int i = x;i < width+x;i++){
