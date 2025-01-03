@@ -1,9 +1,9 @@
 import requests
 import json
 import sys
-import os
 
-API_KEY = os.environ['RANDOM_API']
+file = open(".API_KEY", "r")
+API_KEY = file.readline()
 url = 'https://api.random.org/json-rpc/4/invoke'
 
 _n = sys.argv[1]
