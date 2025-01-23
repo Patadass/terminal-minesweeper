@@ -4,6 +4,8 @@ import sys
 
 file = open(".API_KEY", "r")
 API_KEY = file.readline()
+API_KEY = API_KEY.strip("\n")
+
 url = 'https://api.random.org/json-rpc/4/invoke'
 
 _n = sys.argv[1]
