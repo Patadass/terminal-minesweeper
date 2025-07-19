@@ -1,5 +1,6 @@
-/game
-/api_response.txt
-/random_cords.txt
-/.API_KEY
-/compile.sh
+game
+api_response.txt
+random_cords.txt
+.API_KEY
+compile.sh
+minesweeper
