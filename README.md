@@ -4,7 +4,6 @@ linux/macos/unix
 ```
 make
 ```
-Create an api key from random.org and put it in a file named .API_KEY
 
-![menu](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/menu.png)
-![game](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/game.png)
+![menu](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/menu.png?raw=true)
+![game](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/game.png?raw=true)
