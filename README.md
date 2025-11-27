@@ -1,6 +1,6 @@
 # Minesweeper cli
 ## Build
-linux/macos/unix (ncurses required)
+linux/macos/unix
 ```
 make
 ```
