@@ -1,11 +1,46 @@
+#include <cstdlib>
+#include <math.h>
 #include <cstring>
+#include <ctime>
+#include <fstream>
 #include <ncurses.h>
+#include <set>
 #include <string>
 #include "lib/draw.h"
 #include "lib/board.h"
 
 using namespace std;
 
+unsigned int random_int(unsigned int to){
+    return rand() % to;
+}
+
+void generate_random_cords(int n, int height, int width){
+    if(n > height * width){
+        return;
+    }
+    printw("Generating random positions...");
+    set<int> s;
+    refresh();
+    ofstream file;
+    file.open("random_cords.txt", ios::trunc);
+    srand(time(nullptr)); //set seed from current time
+    for(int i = 0;i < n;i++){
+        unsigned int h = random_int(height);
+        unsigned int w = random_int(width);
+        if(s.count(h*100 + w) > 0){
+            i--;
+            continue;
+        }
+        //store both cords as one number
+        //h*100 if w is a double digit number
+        //can be done with (h*pow(10,(int) (log10(w) + 1)) + w) but i no like
+        s.insert(h*100 + w);
+        file<<h<<";"<<w<<endl;
+    }
+    file.close();
+    clear();
+}
 
 void run_script(const string& src,int n,int height,int width){
     const string _n = to_string(n), _height = to_string(height), _width = to_string(width);
@@ -315,7 +350,8 @@ int main(int argc, char* argv[]){
     clear();
 
     int height = dim.height,width = dim.width,mines = dim.mines;
-    run_script("random_api.py",mines,height,width);
+    //run_script("random_api.py",mines,height,width);
+    generate_random_cords(mines, height, width);
 
     Board board(height,width);
     board.init_map();
