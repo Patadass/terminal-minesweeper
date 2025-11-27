@@ -42,19 +42,6 @@ void generate_random_cords(int n, int height, int width){
     clear();
 }
 
-void run_script(const string& src,int n,int height,int width){
-    const string _n = to_string(n), _height = to_string(height), _width = to_string(width);
-    const string argv = _n + " " + _height + " " + _width;
-    const string _cmd = "python3 " + src + " " + argv;
-    char cmd[_cmd.size()];
-    cmd[_cmd.size()] = ' ';
-    for(int i = 0;i < _cmd.size();i++){cmd[i] = _cmd[i];}
-    printw("Getting random positions...");
-    refresh();
-    system(cmd);
-    clear();
-}
-
 struct Dims{
 public:
     int height;
@@ -350,7 +337,6 @@ int main(int argc, char* argv[]){
     clear();
 
     int height = dim.height,width = dim.width,mines = dim.mines;
-    //run_script("random_api.py",mines,height,width);
     generate_random_cords(mines, height, width);
 
     Board board(height,width);
