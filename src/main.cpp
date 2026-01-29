@@ -6,8 +6,8 @@
 #include <ncurses.h>
 #include <set>
 #include <string>
-#include "lib/draw.h"
-#include "lib/board.h"
+#include "draw.h"
+#include "board.h"
 
 using namespace std;
 

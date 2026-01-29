@@ -1,4 +1,4 @@
 all: curses
 
 curses:
-	g++ -o minesweeper main.cpp -lncurses
+	g++ -o minesweeper ./src/main.cpp -lncurses
