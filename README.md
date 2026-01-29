@@ -17,6 +17,7 @@ dnf install ncurses-devel
 <br>Then
 ```bash
 make
+./minesweeper
 ```
 
 
