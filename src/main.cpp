@@ -355,8 +355,12 @@ int main(int argc, char* argv[]){
         key_handle(keyCode);
         if(*keyCode == 99){
             draw.setxy(0, height+offset_i+1);
-            printw("QUIT");
-            break;
+            printw("QUIT? [y,n]");
+            int ans = getch();
+            if(ans == 'y'){
+                break;
+            }
+            clear();
         }
         if(*keyCode == 1){// W
             if(!board.is_out_of_bounds(i-1,j)){
