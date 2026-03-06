@@ -284,38 +284,40 @@ bool game_win_con(Board& board){
     return true;
 }
 
-void key_handle(int *keyCode){
+int key_handle(){
     int ch = getch();
+    int keyCode = 0;
     switch(ch){
         case KEY_F(1):
         case 'q':
-            *keyCode = 99;
+            keyCode = 99;
             break;
         case KEY_UP:
         case 'w':
-            *keyCode = 1;
+            keyCode = 1;
             break;
         case KEY_LEFT:
         case 'a':
-            *keyCode = 2;
+            keyCode = 2;
             break;
         case KEY_DOWN:
         case 's':
-            *keyCode =  3;
+            keyCode =  3;
             break;
         case KEY_RIGHT:
         case 'd':
-            *keyCode = 4;
+            keyCode = 4;
             break;
         case '\n':
-            *keyCode = 5;
+            keyCode = 5;
             break;
         case ' ':
-            *keyCode = 6;
+            keyCode = 6;
             break;
         default:
             break;
     }
+    return keyCode;
 }
 
 //TODO: add timing
@@ -348,12 +350,12 @@ int main(int argc, char* argv[]){
     draw_board(board, draw);
 
     bool game_is_over = false;
-    int *keyCode = new int;
+    int keyCode = 0;
     while(true){
         mvprintw(0,0,"Bombs left: %d \t\t",mines);
-        *keyCode = 0;
-        key_handle(keyCode);
-        if(*keyCode == 99){
+        keyCode = key_handle();
+
+        if(keyCode == 99){
             draw.setxy(0, height+offset_i+1);
             printw("QUIT? [y,n]");
             int ans = getch();
@@ -362,7 +364,7 @@ int main(int argc, char* argv[]){
             }
             clear();
         }
-        if(*keyCode == 1){// W
+        if(keyCode == 1){// W
             if(!board.is_out_of_bounds(i-1,j)){
                 if(board.get_blanket(i,j) == 1){board.set_blanket(i,j,0);}
                 if(board.get_blanket(i,j) == 3){board.set_blanket(i,j, 2);}
@@ -377,7 +379,7 @@ int main(int argc, char* argv[]){
                 if(board.get_blanket(i,j) == 6){board.set_blanket(i,j,7);}
             }
         }
-        if(*keyCode == 2){//A
+        if(keyCode == 2){//A
             if(!board.is_out_of_bounds(i,j-1)){
                 if(board.get_blanket(i,j) == 1){board.set_blanket(i,j,0);}
                 if(board.get_blanket(i,j) == 3){board.set_blanket(i,j, 2);}
@@ -392,7 +394,7 @@ int main(int argc, char* argv[]){
                 if(board.get_blanket(i,j) == 6){board.set_blanket(i,j,7);}
             }
         }
-        if(*keyCode == 3){//S
+        if(keyCode == 3){//S
             if(!board.is_out_of_bounds(i+1,j)){
                 if(board.get_blanket(i,j) == 1){board.set_blanket(i,j,0);}
                 if(board.get_blanket(i,j) == 3){board.set_blanket(i,j, 2);}
@@ -407,7 +409,7 @@ int main(int argc, char* argv[]){
                 if(board.get_blanket(i,j) == 6){board.set_blanket(i,j,7);}
             }
         }
-        if(*keyCode == 4){//D
+        if(keyCode == 4){//D
             if(!board.is_out_of_bounds(i,j+1)){
                 if(board.get_blanket(i,j) == 1){board.set_blanket(i,j,0);}
                 if(board.get_blanket(i,j) == 3){board.set_blanket(i,j, 2);}
@@ -422,7 +424,7 @@ int main(int argc, char* argv[]){
                 if(board.get_blanket(i,j) == 6){board.set_blanket(i,j,7);}
             }
         }
-        if(*keyCode == 5 && !game_is_over){//RETURN select tile
+        if(keyCode == 5 && !game_is_over){//RETURN select tile
             board.set_blanket(i,j,3);
             if(board.get_map(i,j) == 9){
                 draw_board(board, draw);
@@ -447,7 +449,7 @@ int main(int argc, char* argv[]){
                 game_is_over = true;
             }
         }
-        if(*keyCode == 6){//SPACE *flag
+        if(keyCode == 6){//SPACE *flag
             if(board.get_blanket(i,j) == 7){
                 mines = mines+1;
                 board.set_blanket(i,j,1);
@@ -460,7 +462,6 @@ int main(int argc, char* argv[]){
         //draw_board_skeleton(board);
         draw_board(board, draw);
     }
-    delete keyCode;
     draw.setxy(0, height+offset_i+3);
     printw("Press Any key to exit");
     getch();
