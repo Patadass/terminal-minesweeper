@@ -108,7 +108,7 @@ Dims mode_select(Draw draw){
     buttons[0].text = "BEGINNER";
     buttons[1].text = "INTERMEDIATE";
     buttons[2].text = "EXPERT";
-    buttons[3].text = "CUSTOM";
+    buttons[3].text = "CUSTOM (UNDER CONSTRUCTION)";
 
     for(int i = 0;i < 4;i++){;
         buttons[i].i = i+2 * 2;
@@ -127,6 +127,11 @@ Dims mode_select(Draw draw){
     wprintw(win, "%s        16     30     99", buttons[2].text.c_str());
     wmove(win, buttons[3].i, buttons[3].j);
     wprintw(win, "%s", buttons[3].text.c_str());
+
+    wmove(win, height - 4, 1);
+    wprintw(win, "up(W)  down(S)");
+    wmove(win, height - 3, 1);
+    wprintw(win, "select(ENTER)  (q)uit");
 
     int* selected = new int[4];
     memset(selected, 0, sizeof(int) * 4);
@@ -221,7 +226,7 @@ void destroy_win(WINDOW* local_win){
     delwin(local_win);
 }
 
-const int offset_i = 2;
+const int offset_i = 6;
 const int offset_j = 0;
 
 void draw_board(Board& board,Draw draw){
@@ -353,6 +358,8 @@ int main(int argc, char* argv[]){
     int keyCode = 0;
     while(true){
         mvprintw(0,0,"Bombs left: %d \t\t",mines);
+        mvprintw(2,0," move\t flag\t select\t(q)uit");
+        mvprintw(3,0,"(WASD)\t(SPACE)\t(ENTER)");
         keyCode = key_handle();
 
         if(keyCode == 99){
