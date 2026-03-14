@@ -1,4 +1,8 @@
 # Minesweeper cli
+
+![menu](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/menu.png?raw=true)
+![game](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/game.png?raw=true)
+
 ## Build
 Requires ```libncurses-dev```. Use your distros package manager to obtain it<br><br>
 
@@ -19,7 +23,3 @@ dnf install ncurses-devel
 make
 ./minesweeper
 ```
-
-
-![menu](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/menu.png?raw=true)
-![game](https://github.com/Patadass/terminal-minesweeper/blob/main/Photos/game.png?raw=true)
