@@ -1,4 +1,7 @@
+src = ./src/main.cpp
+FLAGS = -Wall -lncurses
+
 all: curses
 
 curses:
-	g++ -o minesweeper ./src/main.cpp -lncurses
+	$(CXX) -o minesweeper $(src) $(FLAGS)
